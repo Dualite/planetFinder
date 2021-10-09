@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Planets</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
+    <link rel="shortcut icon" href="#">    
+</head>
+    
+<body>
+  <div id="page">
+      <!-- Image Magnification Container -->
+      <div class="img-magnifier-container" oncontextmenu="swap()">
+        <img id="planets" src="img/PlanetsCropped.png" alt="Planets" usemap="#image-map"  class="map">
+      </div>
+      <!-- Drop Down Menu -->
+      <button onclick="toggle()" class="dropbtn" accesskey="f">Find Planet</button>
+        <div id="myDropdown" class="dropdown-content">
+          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+          <a href="#" id="Echo-Link" data-planet="Echo" onclick="hilightArea(this)">Echo</a>
+          <a href="#" id="Ledha-Link" data-planet="Ledha" onclick="hilightArea(this)">Ledha</a>
+          <a href="#" id="Oris-Ial-Link" data-planet="Oris-Ial" onclick="hilightArea(this)">Oris Ial</a>
+          <a href="#" id="Oris-Lai-Link" data-planet="Oris-Lai" onclick="hilightArea(this)">Oris Lai</a>
+          <a href="#" id="Sauis-Prime-Link" data-planet="Sauis-Prime" onclick="hilightArea(this)">Sauis Prime</a>
+          <a href="#" id="Sauis-Tertie-Link" data-planet="Sauis-Tertie" onclick="hilightArea(this)">Sauis Tertie</a>
+          <a href="#" id="Sauis-Proxima-Link" data-planet="Sauis-Proxima" onclick="hilightArea(this)">Sauis Proxima</a>
+          <a href="#" id="Iokis-Link" data-planet="Iokis" onclick="hilightArea(this)">Iokis</a>
+          <a href="#" id="Isatol-Link" data-planet="Isatol" onclick="hilightArea(this)">Isatol</a>
+          <a href="#" id="Morgum-Link" data-planet="Morgum" onclick="hilightArea(this)">Morgum</a>
+          <a href="#" id="Aintar-Link" data-planet="Aintar" onclick="hilightArea(this)">Aintar</a>
+          <a href="#" id="Arawas-Link" data-planet="Arawas" onclick="hilightArea(this)">Arawas</a>
+          <a href="#" id="Arawet-Link" data-planet="Arawet" onclick="hilightArea(this)">Arawet</a>
+          <a href="#" id="Arellius-Link" data-planet="Arellius" onclick="hilightArea(this)">Arellius</a>
+          <a href="#" id="Arentis-Link" data-planet="Arentis" onclick="hilightArea(this)">Arentis</a>
+          <a href="#" id="Arquita-Link" data-planet="Arquita" onclick="hilightArea(this)">Arquita</a>
+          <a href="#" id="Arren-Station-Link" data-planet="Arren-Station" onclick="hilightArea(this)">Arren-Station</a>
+          <a href="#" id="Aruvis-Link" data-planet="Aruvis" onclick="hilightArea(this)">Aruvis</a>
+          <a href="#" id="Aushion-Link" data-planet="Aushion" onclick="hilightArea(this)">Aushion</a>
+          <a href="#" id="Avion-Link" data-planet="Avion" onclick="hilightArea(this)">Avion</a>
+          <a href="#" id="Brakum-Link" data-planet="Brakum" onclick="hilightArea(this)">Brakum</a>
+          <a href="#" id="Caysha-Link" data-planet="Caysha" onclick="hilightArea(this)">Caysha</a>
+          <a href="#" id="Dyshka-Link" data-planet="Dyshka" onclick="hilightArea(this)">Dyshka</a>
+          <a href="#" id="Entus-Link" data-planet="Entus" onclick="hilightArea(this)">Entus</a>
+          <a href="#" id="Erysh-Link" data-planet="Erysh" onclick="hilightArea(this)">Erysh</a>
+          <a href="#" id="Exval-Link" data-planet="Exval" onclick="hilightArea(this)">Exval</a>
+          <a href="#" id="Garadoth-Link" data-planet="Garadoth" onclick="hilightArea(this)">Garadoth</a>
+          <a href="#" id="Haro-Link" data-planet="Haro" onclick="hilightArea(this)">Haro</a>
+          <a href="#" id="Hulin-Link" data-planet="Hulin" onclick="hilightArea(this)">Hulin</a>
+          <a href="#" id="Icawas-Link" data-planet="Icawas" onclick="hilightArea(this)">Icawas</a>
+          <a href="#" id="Icron-Link" data-planet="Icron" onclick="hilightArea(this)">Icron</a>
+          <a href="#" id="Imidal-Link" data-planet="Imidal" onclick="hilightArea(this)">Imidal</a>
+          <a href="#" id="Ishkamon-Link" data-planet="Ishkamon" onclick="hilightArea(this)">Ishkamon</a>
+          <a href="#" id="Jentus-Link" data-planet="Jentus" onclick="hilightArea(this)">Jentus</a>
+          <a href="#" id="Jushin-Link" data-planet="Jushin" onclick="hilightArea(this)">Jushin</a>
+          <a href="#" id="Kaida-Link" data-planet="Kaida" onclick="hilightArea(this)">Kaida</a>
+          <a href="#" id="Kailist-Link" data-planet="Kailist" onclick="hilightArea(this)">Kailist</a>
+          <a href="#" id="Kairus-Link" data-planet="Kairus" onclick="hilightArea(this)">Kairus</a>
+          <a href="#" id="Karnos-Link" data-planet="Karnos" onclick="hilightArea(this)">Karnos</a>
+          <a href="#" id="Kaustis-Link" data-planet="Kaustis" onclick="hilightArea(this)">Kaustis</a>
+          <a href="#" id="Kep-Link" data-planet="Kep" onclick="hilightArea(this)">Kep</a>
+          <a href="#" id="Kurava-Link" data-planet="Kurava" onclick="hilightArea(this)">Kurava</a>
+          <a href="#" id="Kurian-Link" data-planet="Kurian" onclick="hilightArea(this)">Kurian</a>
+          <a href="#" id="Lariox-Link" data-planet="Lariox" onclick="hilightArea(this)">Lariox</a>
+          <a href="#" id="Lightnings-Head-Link" data-planet="Lightnings-Head" onclick="hilightArea(this)">Lightnings-Head</a>
+          <a href="#" id="Lorium-Link" data-planet="Lorium" onclick="hilightArea(this)">Lorium</a>
+          <a href="#" id="Loval-Link" data-planet="Loval" onclick="hilightArea(this)">Loval</a>
+          <a href="#" id="Maris-Link" data-planet="Maris" onclick="hilightArea(this)">Maris</a>
+          <a href="#" id="Marquit-Link" data-planet="Marquit" onclick="hilightArea(this)">Marquit</a>
+          <a href="#" id="Miro-Link" data-planet="Miro" onclick="hilightArea(this)">Miro</a>
+          <a href="#" id="Mirquin-Link" data-planet="Mirquin" onclick="hilightArea(this)">Mirquin</a>
+          <a href="#" id="Mirwa-Link" data-planet="Mirwa" onclick="hilightArea(this)">Mirwa</a>
+          <a href="#" id="Monali-Link" data-planet="Monali" onclick="hilightArea(this)">Monali</a>
+          <a href="#" id="Morysh-Link" data-planet="Morysh" onclick="hilightArea(this)">Morysh</a>
+          <a href="#" id="Murka-Link" data-planet="Murka" onclick="hilightArea(this)">Murka</a>
+          <a href="#" id="Nakiro-Link" data-planet="Nakiro" onclick="hilightArea(this)">Nakiro</a>
+          <a href="#" id="Naros-Link" data-planet="Naros" onclick="hilightArea(this)">Naros</a>
+          <a href="#" id="Nidar-Link" data-planet="Nidar" onclick="hilightArea(this)">Nidar</a>
+          <a href="#" id="Noma-Link" data-planet="Noma" onclick="hilightArea(this)">Noma</a>
+          <a href="#" id="Obor-Link" data-planet="Obor" onclick="hilightArea(this)">Obor</a>
+          <a href="#" id="Oroxes-Link" data-planet="Oroxes" onclick="hilightArea(this)">Oroxes</a>
+          <a href="#" id="Karda-Link" data-planet="Karda" onclick="hilightArea(this)">Karda</a>
+          <a href="#" id="Pikara-Link" data-planet="Pikara" onclick="hilightArea(this)">Pikara</a>
+          <a href="#" id="Pinnacle-Link" data-planet="Pinnacle" onclick="hilightArea(this)">Pinnacle</a>
+          <a href="#" id="Pyallis-Link" data-planet="Pyallis" onclick="hilightArea(this)">Pyallis</a>
+          <a href="#" id="Pyrka-Link" data-planet="Pyrka" onclick="hilightArea(this)">Pyrka</a>
+          <a href="#" id="Racos-Link" data-planet="Racos" onclick="hilightArea(this)">Racos</a>
+          <a href="#" id="Saron-Link" data-planet="Saron" onclick="hilightArea(this)">Saron</a>
+          <a href="#" id="Scippia-Link" data-planet="Scippia" onclick="hilightArea(this)">Scippia</a>
+          <a href="#" id="Scorra-Link" data-planet="Scorra" onclick="hilightArea(this)">Scorra</a>
+          <a href="#" id="Segin-Link" data-planet="Segin" onclick="hilightArea(this)">Segin</a>
+          <a href="#" id="Shenakiro-Link" data-planet="Shenakiro" onclick="hilightArea(this)">Shenakiro</a>
+          <a href="#" id="Somquit-Link" data-planet="Somquit" onclick="hilightArea(this)">Somquit</a>
+          <a href="#" id="Taui-Link" data-planet="Taui" onclick="hilightArea(this)">Taui</a>
+          <a href="#" id="Tenin-Link" data-planet="Tenin" onclick="hilightArea(this)">Tenin</a>
+          <a href="#" id="Teswat-Link" data-planet="Teswat" onclick="hilightArea(this)">Teswat</a>
+          <a href="#" id="Vale-Link" data-planet="Vale" onclick="hilightArea(this)">Vale</a>
+          <a href="#" id="Vant-Link" data-planet="Vant" onclick="hilightArea(this)">Vant</a>
+          <a href="#" id="Vasikorin-Link" data-planet="Vasikorin" onclick="hilightArea(this)">Vasikorin</a>
+          <a href="#" id="Vatali-Link" data-planet="Vatali" onclick="hilightArea(this)">Vatali</a>
+          <a href="#" id="Vellius-Link" data-planet="Vellius" onclick="hilightArea(this)">Vellius</a>
+          <a href="#" id="Vexi-Link" data-planet="Vexi" onclick="hilightArea(this)">Vexi</a>
+          <a href="#" id="Virmi-Link" data-planet="Virmi" onclick="hilightArea(this)">Virmi</a>
+          <a href="#" id="Vorpa-Link" data-planet="Vorpa" onclick="hilightArea(this)">Vorpa</a>
+          <a href="#" id="Narus-Link" data-planet="Narus" onclick="hilightArea(this)">Narus</a>
+          <a href="#" id="Arzen-Link" data-planet="Arzen" onclick="hilightArea(this)">Arzen</a>
+          <a href="#" id="Ithrion-Link" data-planet="Ithrion" onclick="hilightArea(this)">Ithrion</a>
+          <a href="#" id="Basin-Link" data-planet="Basin" onclick="hilightArea(this)">Basin</a>
+          <a href="#" id="Hartill-Link" data-planet="Hartill" onclick="hilightArea(this)">Hartill</a>
+          <a href="#" id="Faethon-Link" data-planet="Faethon" onclick="hilightArea(this)">Faethon</a>
+          <a href="#" id="Irillia-Link" data-planet="Irillia" onclick="hilightArea(this)">Irillia</a>
+          <a href="#" id="Oshiyo-Link" data-planet="Oshiyo" onclick="hilightArea(this)">Oshiyo</a>
+          <a href="#" id="Jomith-Link" data-planet="Jomith" onclick="hilightArea(this)">Jomith</a>
+          <a href="#" id="Hulcrin-Link" data-planet="Hulcrin" onclick="hilightArea(this)">Hulcrin</a>
+          <a href="#" id="Gisclar-Link" data-planet="Gisclar" onclick="hilightArea(this)">Gisclar</a>
+          <a href="#" id="Kudar-Link" data-planet="Kudar" onclick="hilightArea(this)">Kudar</a>
+          <a href="#" id="Haustra-Link" data-planet="Haustra" onclick="hilightArea(this)">Haustra</a>
+          <a href="#" id="Endrik-Link" data-planet="Endrik" onclick="hilightArea(this)">Endrik</a>
+          <a href="#" id="Porvari-Link" data-planet="Porvari" onclick="hilightArea(this)">Porvari</a>
+          <a href="#" id="Raecron-Link" data-planet="Raecron" onclick="hilightArea(this)">Raecron</a>
+          <a href="#" id="Lanori-Link" data-planet="Lanori" onclick="hilightArea(this)">Lanori</a>
+          <a href="#" id="Doldrith-Link" data-planet="Doldrith" onclick="hilightArea(this)">Doldrith</a>
+          <a href="#" id="Maedra-Link" data-planet="Maedra" onclick="hilightArea(this)">Maedra</a>
+          <a href="#" id="Dauris-Link" data-planet="Dauris" onclick="hilightArea(this)">Dauris</a>
+          <a href="#" id="Mothuri-Link" data-planet="Mothuri" onclick="hilightArea(this)">Mothuri</a>
+          <a href="#" id="Klori-Link" data-planet="Klori" onclick="hilightArea(this)">Klori</a>
+          <a href="#" id="Serdin-Link" data-planet="Serdin" onclick="hilightArea(this)">Serdin</a>
+          <a href="#" id="Orane-Link" data-planet="Orane" onclick="hilightArea(this)">Orane</a>
+          <a href="#" id="Sovical-Link" data-planet="Sovical" onclick="hilightArea(this)">Sovical</a>
+          <a href="#" id="Porten-Link" data-planet="Porten" onclick="hilightArea(this)">Porten</a>
+          <a href="#" id="Caiern-Link" data-planet="Caiern" onclick="hilightArea(this)">Caiern</a>
+          <a href="#" id="Urmoth-Link" data-planet="Urmoth" onclick="hilightArea(this)">Urmoth</a>
+          <a href="#" id="Barul-Link" data-planet="Barul" onclick="hilightArea(this)">Barul</a>
+          <a href="#" id="Perosh-Link" data-planet="Perosh" onclick="hilightArea(this)">Perosh</a>
+          <a href="#" id="Omridon-Link" data-planet="Omridon" onclick="hilightArea(this)">Omridon</a>
+          <a href="#" id="Gautri-Link" data-planet="Gautri" onclick="hilightArea(this)">Gautri</a>
+          <a href="#" id="Nesh-Link" data-planet="Nesh" onclick="hilightArea(this)">Nesh</a>
+          <a href="#" id="Gallithon-Link" data-planet="Gallithon" onclick="hilightArea(this)">Gallithon</a>
+          <a href="#" id="Thernal-Link" data-planet="Thernal" onclick="hilightArea(this)">Thernal</a>
+          <a href="#" id="Quorith-Link" data-planet="Quorith" onclick="hilightArea(this)">Quorith</a>
+          <a href="#" id="Scyvilon-Link" data-planet="Scyvilon" onclick="hilightArea(this)">Scyvilon</a>
+          <a href="#" id="Utri-Link" data-planet="Utri" onclick="hilightArea(this)">Utri</a>
+          <a href="#" id="Thellion-Link" data-planet="Thellion" onclick="hilightArea(this)">Thellion</a>
+          <a href="#" id="Jutarri-Link" data-planet="Jutarri" onclick="hilightArea(this)">Jutarri</a>
+          <a href="#" id="Numari-Link" data-planet="Numari" onclick="hilightArea(this)">Numari</a>
+          <a href="#" id="Uchion-Link" data-planet="Uchion" onclick="hilightArea(this)">Uchion</a>
+          <a href="#" id="Vallion-Link" data-planet="Vallion" onclick="hilightArea(this)">Vallion</a>
+          <a href="#" id="Erida-Link" data-planet="Erida" onclick="hilightArea(this)">Erida</a>
+          <a href="#" id="Daziwa-Link" data-planet="Daziwa" onclick="hilightArea(this)">Daziwa</a>
+          <a href="#" id="Tyslin-Link" data-planet="Tyslin" onclick="hilightArea(this)">Tyslin</a>
+          <a href="#" id="Quell-Link" data-planet="Quell" onclick="hilightArea(this)">Quell</a>
+          <a href="#" id="Caishon-Link" data-planet="Caishon" onclick="hilightArea(this)">Caishon</a>
+          <a href="#" id="Mirdin-Link" data-planet="Mirdin" onclick="hilightArea(this)">Mirdin</a>
+          <a href="#" id="Kiarion-Link" data-planet="Kiarion" onclick="hilightArea(this)">Kiarion</a>
+          <a href="#" id="Burchal-Link" data-planet="Burchal" onclick="hilightArea(this)">Burchal</a>
+          <a href="#" id="Fovalus-Link" data-planet="Fovalus" onclick="hilightArea(this)">Fovalus</a>
+          <a href="#" id="Limrul-Link" data-planet="Limrul" onclick="hilightArea(this)">Limrul</a>
+          <a href="#" id="Lisca-Link" data-planet="Lisca" onclick="hilightArea(this)">Lisca</a>
+          <a href="#" id="Thauray-Link" data-planet="Thauray" onclick="hilightArea(this)">Thauray</a>
+          <a href="#" id="Ciroth-Link" data-planet="Ciroth" onclick="hilightArea(this)">Ciroth</a>
+          <a href="#" id="Forn-Link" data-planet="Forn" onclick="hilightArea(this)">Forn</a>
+          <a href="#" id="Braedor-Link" data-planet="Braedor" onclick="hilightArea(this)">Braedor</a>
+          <a href="#" id="Naros-Link" data-planet="Naros" onclick="hilightArea(this)">Naros</a>
+          <a href="#" id="Akkado-Link" data-planet="Akkado" onclick="hilightArea(this)">Akkado</a>
+          <a href="#" id="Retorin-Link" data-planet="Retorin" onclick="hilightArea(this)">Retorin</a>
+          <a href="#" id="Ryshiri-Link" data-planet="Ryshiri" onclick="hilightArea(this)">Ryshiri</a>
+          <a href="#" id="Quillin-Link" data-planet="Quillin" onclick="hilightArea(this)">Quillin</a>
+          <a href="#" id="Wayward-Station-Link" data-planet="Wayward-Station" onclick="hilightArea(this)">Wayward-Station</a>
+          <a href="#" id="Tench-Link" data-planet="Tench" onclick="hilightArea(this)">Tench</a>
+          <a href="#" id="Iwetha-Link" data-planet="Iwetha" onclick="hilightArea(this)">Iwetha</a>
+          <a href="#" id="Breherion-Link" data-planet="Breherion" onclick="hilightArea(this)">Breherion</a>
+          <a href="#" id="Ibrionet-Link" data-planet="Ibrionet" onclick="hilightArea(this)">Ibrionet</a>
+          <a href="#" id="Aeqori-Link" data-planet="Aeqori" onclick="hilightArea(this)">Aeqori</a>
+          <a href="#" id="Rithis-Link" data-planet="Rithis" onclick="hilightArea(this)">Rithis</a>
+          <a href="#" id="Osetio-Link" data-planet="Osetio" onclick="hilightArea(this)">Osetio</a>
+          <a href="#" id="Clioth-Link" data-planet="Clioth" onclick="hilightArea(this)">Clioth</a>
+          <a href="#" id="Arcaes-Link" data-planet="Arcaes" onclick="hilightArea(this)">Arcaes</a>
+          <a href="#" id="Etteroth-Link" data-planet="Etteroth" onclick="hilightArea(this)">Etteroth</a>
+          <a href="#" id="Ranivar-Link" data-planet="Ranivar" onclick="hilightArea(this)">Ranivar</a>
+          <a href="#" id="Kupori-Link" data-planet="Kupori" onclick="hilightArea(this)">Kupori</a>
+          <a href="#" id="Dosalyn-Link" data-planet="Dosalyn" onclick="hilightArea(this)">Dosalyn</a>
+          <a href="#" id="Cliacon-Link" data-planet="Cliacon" onclick="hilightArea(this)">Cliacon</a>
+          <a href="#" id="Larat-Link" data-planet="Larat" onclick="hilightArea(this)">Larat</a>
+          <a href="#" id="Kastaen-Link" data-planet="Kastaen" onclick="hilightArea(this)">Kastaen</a>
+          <a href="#" id="Ommea-Link" data-planet="Ommea" onclick="hilightArea(this)">Ommea</a>
+          <a href="#" id="Droquet-Link" data-planet="Droquet" onclick="hilightArea(this)">Droquet</a>
+          <a href="#" id="Neahirah-Link" data-planet="Neahirah" onclick="hilightArea(this)">Neahirah</a>
+          <a href="#" id="Krergi-Link" data-planet="Krergi" onclick="hilightArea(this)">Krergi</a>
+          <a href="#" id="Imatorin-Link" data-planet="Imatorin" onclick="hilightArea(this)">Imatorin</a>
+          <a href="#" id="Atisho-Link" data-planet="Atisho" onclick="hilightArea(this)">Atisho</a>
+          <a href="#" id="Vaecros-Link" data-planet="Vaecros" onclick="hilightArea(this)">Vaecros</a>
+          <a href="#" id="Ghisori-Link" data-planet="Ghisori" onclick="hilightArea(this)">Ghisori</a>
+          <a href="#" id="Hadrin-Link" data-planet="Hadrin" onclick="hilightArea(this)">Hadrin</a>
+          <a href="#" id="Lyris-Link" data-planet="Lyris" onclick="hilightArea(this)">Lyris</a>
+          <a href="#" id="Niscenda-Link" data-planet="Niscenda" onclick="hilightArea(this)">Niscenda</a>
+          <a href="#" id="Oarqi-Link" data-planet="Oarqi" onclick="hilightArea(this)">Oarqi</a>
+          <a href="#" id="Blassin-Link" data-planet="Blassin" onclick="hilightArea(this)">Blassin</a>
+          <a href="#" id="Urast-Link" data-planet="Urast" onclick="hilightArea(this)">Urast</a>
+          <a href="#" id="Arnaeth-Link" data-planet="Arnaeth" onclick="hilightArea(this)">Arnaeth</a>
+          <a href="#" id="Collus-Link" data-planet="Collus" onclick="hilightArea(this)">Collus</a>
+          <a href="#" id="Waedon-Link" data-planet="Waedon" onclick="hilightArea(this)">Waedon</a>
+          <a href="#" id="Coruth-Link" data-planet="Coruth" onclick="hilightArea(this)">Coruth</a>
+          <a href="#" id="Vislin-Link" data-planet="Vislin" onclick="hilightArea(this)">Vislin</a>
+          <a href="#" id="Sablen-Link" data-planet="Sablen" onclick="hilightArea(this)">Sablen</a>
+          <a href="#" id="Modrin-Link" data-planet="Modrin" onclick="hilightArea(this)">Modrin</a>
+          <a href="#" id="Nareus-Link" data-planet="Nareus" onclick="hilightArea(this)">Nareus</a>
+          <a href="#" id="Verex-Link" data-planet="Verex" onclick="hilightArea(this)">Verex</a>
+          <a href="#" id="Taelith-Link" data-planet="Taelith" onclick="hilightArea(this)">Taelith</a>
+          <a href="#" id="Urva-Link" data-planet="Urva" onclick="hilightArea(this)">Urva</a>
+          <a href="#" id="Rhika-Link" data-planet="Rhika" onclick="hilightArea(this)">Rhika</a>
+          <a href="#" id="Orun-Link" data-planet="Orun" onclick="hilightArea(this)">Orun</a>
+          <a href="#" id="Haiburn-Link" data-planet="Haiburn" onclick="hilightArea(this)">Haiburn</a>
+          <a href="#" id="Garis-Link" data-planet="Garis" onclick="hilightArea(this)">Garis</a>
+          <a href="#" id="Drovia-Link" data-planet="Drovia" onclick="hilightArea(this)">Drovia</a>
+          <a href="#" id="Mionet-Link" data-planet="Mionet" onclick="hilightArea(this)">Mionet</a>
+          <a href="#" id="Opheon-Link" data-planet="Opheon" onclick="hilightArea(this)">Opheon</a>
+          <a href="#" id="Ralira-Link" data-planet="Ralira" onclick="hilightArea(this)">Ralira</a>
+          <a href="#" id="Variel-Link" data-planet="Variel" onclick="hilightArea(this)">Variel</a>
+          <a href="#" id="Codios-Link" data-planet="Codios" onclick="hilightArea(this)">Codios</a>
+          <a href="#" id="Napheros-Link" data-planet="Napheros" onclick="hilightArea(this)">Napheros</a>
+          <a href="#" id="Talvir-Link" data-planet="Talvir" onclick="hilightArea(this)">Talvir</a>
+          <a href="#" id="Vaipra-Link" data-planet="Vaipra" onclick="hilightArea(this)">Vaipra</a>
+          <a href="#" id="Khosto-Link" data-planet="Khosto" onclick="hilightArea(this)">Khosto</a>
+          <a href="#" id="Thael-Link" data-planet="Thael" onclick="hilightArea(this)">Thael</a>
+          <a href="#" id="Narosi-Link" data-planet="Narosi" onclick="hilightArea(this)">Narosi</a>
+          <a href="#" id="Quodin-Link" data-planet="Quodin" onclick="hilightArea(this)">Quodin</a>
+          <a href="#" id="Ravost-Link" data-planet="Ravost" onclick="hilightArea(this)">Ravost</a>
+          <a href="#" id="Falori-Link" data-planet="Falori" onclick="hilightArea(this)">Falori</a>
+          <a href="#" id="Duathen-Link" data-planet="Duathen" onclick="hilightArea(this)">Duathen</a>
+          <a href="#" id="Istrion-Link" data-planet="Istrion" onclick="hilightArea(this)">Istrion</a>
+          <a href="#" id="Iskari-Link" data-planet="Iskari" onclick="hilightArea(this)">Iskari</a>
+          <a href="#" id="Bretova-Link" data-planet="Bretova" onclick="hilightArea(this)">Bretova</a>
+          <a href="#" id="Laviston-Link" data-planet="Laviston" onclick="hilightArea(this)">Laviston</a>
+          <a href="#" id="Novarum-Link" data-planet="Novarum" onclick="hilightArea(this)">Novarum</a>
+          <a href="#" id="Hosca-Link" data-planet="Hosca" onclick="hilightArea(this)">Hosca</a>
+          <a href="#" id="Austal-Link" data-planet="Austal" onclick="hilightArea(this)">Austal</a>
+          <a href="#" id="Talikos-Link" data-planet="Talikos" onclick="hilightArea(this)">Talikos</a>
+          <a href="#" id="Gaulvir-Link" data-planet="Gaulvir" onclick="hilightArea(this)">Gaulvir</a>
+          <a href="#" id="Iodion-Link" data-planet="Iodion" onclick="hilightArea(this)">Iodion</a>
+          <a href="#" id="Narum-Link" data-planet="Narum" onclick="hilightArea(this)">Narum</a>
+          <a href="#" id="Harikoth-Link" data-planet="Harikoth" onclick="hilightArea(this)">Harikoth</a>  
+          <a href="#" id="Maikos-Link" data-planet="Maikos" onclick="hilightArea(this)">Maikos</a>        
+          <a href="#" id="Setorias-Link" data-planet="Setorias" onclick="hilightArea(this)">Setorias</a> 
+        </div>
+
+      <!-- Image Map -->
+			<map name="image-map" id="image-map">
+				<area id="Echo" alt="Echo" title="Echo" href="#" coords="1051,170,10" shape="circle">
+				<area id="Ledha" title="Ledha" href="#" coords="1153,206,10" shape="circle">
+				<area id="Oris-Ial" title="Oris Ial" href="#" coords="955,223,10" shape="circle">
+				<area id="Sauis-Prime" title="Sauis Prime" href="#" coords="870,248,10" shape="circle">
+				<area id="Oris-Lai" title="Oris Lai" href="#" coords="1015,258,10" shape="circle">
+				<area id="Sauis-Tertie" title="Sauis Tertie" href="#" coords="923,293,10" shape="circle">
+				<area id="Sauis-Proxima" title="Sauis Proxima" href="#" coords="830,314,10" shape="circle">
+				<area id="Iokis" title="Iokis" href="#" coords="947,378,10" shape="circle">
+				<area id="Isatol" title="Isatol" href="#" coords="929,435,10" shape="circle">
+        <area id="Morgum" title="Morgum" href="#" coords="985,575,10" shape="circle">
+        <area id="Aintar" title="Aintar" href="#" coords="2055,382,10" shape="circle">
+        <area id="Arawas" title="Arawas" href="#" coords="1414,408,10" shape="circle">
+        <area id="Arawet" title="Arawet" href="#" coords="1534,349,10" shape="circle">
+        <area id="Arellius" title="Arellius" href="#" coords="1853,444,10" shape="circle">
+        <area id="Arentis" title="Arentis" href="#" coords="1730,552,10" shape="circle">
+        <area id="Arquita" title="Arquita" href="#" coords="2368,545,10" shape="circle">
+        <area id="Arren-Station" title="Arren Station" href="#" coords="1635,323,10" shape="circle">
+        <area id="Aruvis" title="Aruvis" href="#" coords="1844,507,10" shape="circle">
+        <area id="Aushion" title="Aushion" href="#" coords="1856,324,10" shape="circle">
+        <area id="Avion" title="Avion" href="#" coords="1169,948,10" shape="circle">
+        <area id="Brakum" title="Brakum" href="#" coords="2481,445,10" shape="circle">
+        <area id="Caysha" title="Caysha" href="#" coords="1988,721,10" shape="circle">
+        <area id="Dyshka" title="Dyshka" href="#" coords="1035,653,10" shape="circle">
+        <area id="Entus" title="Entus" href="#" coords="2563,436,10" shape="circle">
+        <area id="Erysh" title="Erysh" href="#" coords="1109,641,10" shape="circle">
+        <area id="Exval" title="Exval" href="#" coords="1246,787,10" shape="circle">
+        <area id="Garadoth" title="Garadoth" href="#" coords="2067,739,10" shape="circle">
+        <area id="Haro" title="Haro" href="#" coords="2492,709,10" shape="circle">
+        <area id="Hulin" title="Hulin" href="#" coords="1532,709,10" shape="circle">
+        <area id="Icawas" title="Icawas" href="#" coords="1614,243,10" shape="circle">
+        <area id="Icron" title="Icron" href="#" coords="1507,448,10" shape="circle">
+        <area id="Imidal" title="Imidal" href="#" coords="1902,44,10" shape="circle">
+        <area id="Ishkamon" title="Ishkamon" href="#" coords="1846,708,10" shape="circle">
+        <area id="Jentus" title="Jentus" href="#" coords="1427,763,10" shape="circle">
+        <area id="Jushin" title="Jushin" href="#" coords="1324,756,10" shape="circle">
+        <area id="Kaida" title="Kaida" href="#" coords="1612,674,10" shape="circle">
+        <area id="Kailist" title="Kailist" href="#" coords="2085,443,10" shape="circle">
+        <area id="Kairus" title="Kairus" href="#" coords="1961,591,10" shape="circle">
+        <area id="Karnos" title="Karnos" href="#" coords="1209,891,10" shape="circle">
+        <area id="Kaustis" title="Kaustis" href="#" coords="1716,291,10" shape="circle">
+        <area id="Kep" title="Kep" href="#" coords="1858,106,10" shape="circle">
+        <area id="Kurava" title="Kurava" href="#" coords="2140,363,10" shape="circle">
+        <area id="Kurian" title="Kurian" href="#" coords="1489,777,10" shape="circle">
+        <area id="Lariox" title="Lariox" href="#" coords="2246,472,10" shape="circle">
+        <area id="Lightnings-Head" title="Lightning's Head" href="#" coords="1215,659,10" shape="circle">
+        <area id="Lorium" title="Lorium" href="#" coords="1368,811,10" shape="circle">
+        <area id="Loval" title="Loval" href="#" coords="1720,627,10" shape="circle">
+        <area id="Maris" title="Maris" href="#" coords="1087,826,10" shape="circle">
+        <area id="Marquit" title="Marquit" href="#" coords="2093,563,10" shape="circle">
+        <area id="Miro" title="Miro" href="#" coords="1944,192,10" shape="circle">
+        <area id="Mirquin" title="Mirquin" href="#" coords="2333,602,10" shape="circle">
+        <area id="Mirwa" title="Mirwa" href="#" coords="1522,543,10" shape="circle">
+        <area id="Monali" title="Monali" href="#" coords="2024,648,10" shape="circle">
+        <area id="Morysh" title="Morysh" href="#" coords="1190,802,10" shape="circle">
+        <area id="Murka" title="Murka" href="#" coords="1886,381,10" shape="circle">
+        <area id="Nakiro" title="Nakiro" href="#" coords="2321,667,10" shape="circle">
+        <area id="Naros" title="Naros" href="#" coords="1661,1176,10" shape="circle">
+        <area id="Nidar" title="Nidar" href="#" coords="1635,525,10" shape="circle">
+        <area id="Noma" title="Noma" href="#" coords="1790,102,10" shape="circle">
+        <area id="Obor" title="Obor" href="#" coords="1626,951,10" shape="circle">
+        <area id="Oroxes" title="Oroxes" href="#" coords="2342,475,10" shape="circle">
+        <area id="Karda" title="Karda" href="#" coords="2272,386,10" shape="circle">
+        <area id="Pikara" title="Pikara" href="#" coords="2241,317,10" shape="circle">
+        <area id="Pinnacle" title="Pinnacle" href="#" coords="1400,513,10" shape="circle">
+        <area id="Pyallis" title="Pyallis" href="#" coords="1111,766,10" shape="circle">
+        <area id="Pyrka" title="Pyrka" href="#" coords="1151,737,10" shape="circle">
+        <area id="Racos" title="Racos" href="#" coords="2000,778,10" shape="circle">
+        <area id="Saron" title="Saron" href="#" coords="1669,873,10" shape="circle">
+        <area id="Scippia" title="Scippia" href="#" coords="2040,57610" shape="circle">
+        <area id="Scorra" title="Scorra" href="#" coords="2150,514,10" shape="circle">
+        <area id="Segin" title="Segin" href="#" coords="2318,265,10" shape="circle">
+        <area id="Shenakiro" title="Shenakiro" href="#" coords="2341,681,10" shape="circle">
+        <area id="Somquit" title="Somquit" href="#" coords="2233,531,10" shape="circle">
+        <area id="Taui" title="Taui" href="#" coords="1068,789,10" shape="circle">
+        <area id="Tenin" title="Tenin" href="#" coords="2049,274,10" shape="circle">
+        <area id="Teswat" title="Teswat" href="#" coords="1759,210,10" shape="circle">
+        <area id="Vale" title="Vale" href="#" coords="1926,268,10" shape="circle">
+        <area id="Vant" title="Vant" href="#" coords="1957,368,10" shape="circle">
+        <area id="Vasikorin" title="Vasikorin" href="#" coords="1313,832,10" shape="circle">
+        <area id="Vatali" title="Vatali" href="#" coords="1996,524,10" shape="circle">
+        <area id="Vellius" title="Vellius" href="#" coords="1723,442,10" shape="circle">
+        <area id="Vexi" title="Vexi" href="#" coords="2241,627,10" shape="circle">
+        <area id="Virmi" title="Virmi" href="#" coords="1924,473,10" shape="circle">
+        <area id="Vorpa" title="Vorpa" href="#" coords="1789,38,10" shape="circle">
+        <area id="Narus" title="Narus" href="#" coords="1608,787,10" shape="circle">
+        <area id="Arzen" title="Arzen" href="#" coords="1943,663,10" shape="circle">
+        <area id="Ithrion" title="Ithrion" href="#" coords="2181,434,10" shape="circle">
+        <area id="Basin" title="Basin" href="#" coords="1462,984,10" shape="circle">
+        <area id="Hartill" title="Hartill" href="#" coords="1402,994,10" shape="circle">
+        <area id="Faethon" title="Faethon" href="#" coords="1419,952,10" shape="circle">
+        <area id="Irillia" title="Irillia" href="#" coords="1008,1506,10" shape="circle">
+        <area id="Oshiyo" title="Oshiyo" href="#" coords="2400,759,10" shape="circle">
+        <area id="Jomith" title="Jomith" href="#" coords="2110,684,10" shape="circle">
+        <area id="Hulcrin" title="Hulcrin" href="#" coords=",,10" shape="circle">
+        <area id="Gisclar" title="Gisclar" href="#" coords="2074,842,10" shape="circle">
+        <area id="Kudar" title="Kudar" href="#" coords="1565,754,10" shape="circle">
+        <area id="Haustra" title="Haustra" href="#" coords="1500,825,10" shape="circle">
+        <area id="Endrik" title="Endrik" href="#" coords="2415,483,10" shape="circle">
+        <area id="Porvari" title="Porvari" href="#" coords="2545,829,10" shape="circle">
+        <area id="Raecron" title="Raecron" href="#" coords="1353,888,10" shape="circle">
+        <area id="Lanori" title="Lanori" href="#" coords="1489,908,10" shape="circle">
+        <area id="Doldrith" title="Doldrith" href="#" coords="1273,882,10" shape="circle">
+        <area id="Maedra" title="Maedra" href="#" coords="1469,954,10" shape="circle">
+        <area id="Dauris" title="Dauris" href="#" coords="1299,987,10" shape="circle">
+        <area id="Mothuri" title="Mothuri" href="#" coords="1428,827,10" shape="circle">
+        <area id="Klori" title="Klori" href="#" coords="1459,830,10" shape="circle">
+        <area id="Serdin" title="Serdin" href="#" coords="2490,1118,10" shape="circle">
+        <area id="Orane" title="Orane" href="#" coords="1866,1114,10" shape="circle">
+        <area id="Sovical" title="Sovical" href="#" coords="1281,933,10" shape="circle">
+        <area id="Porten" title="Porten" href="#" coords="1789,1169,10" shape="circle">
+        <area id="Caiern" title="Caiern" href="#" coords="1378,700,10" shape="circle">
+        <area id="Urmoth" title="Urmoth" href="#" coords="1077,971,10" shape="circle">
+        <area id="Barul" title="Barul" href="#" coords="2537,942,10" shape="circle">
+        <area id="Perosh" title="Perosh" href="#" coords="1159,892,10" shape="circle">
+        <area id="Omridon" title="Omridon" href="#" coords="1269,953,10" shape="circle">
+        <area id="Gautri" title="Gautri" href="#" coords="2040,114,10" shape="circle">
+        <area id="Nesh" title="Nesh" href="#" coords="1347,967,10" shape="circle">
+        <area id="Gallithon" title="Gallithon" href="#" coords="1302,1089,10" shape="circle">
+        <area id="Thernal" title="Thernal" href="#" coords="2129,767,10" shape="circle">
+        <area id="Quorith" title="Quorith" href="#" coords="2321,494,10" shape="circle">
+        <area id="Scyvilon" title="Scyvilon" href="#" coords="1263,677,10" shape="circle">
+        <area id="Utri" title="Utri" href="#" coords="2306,816,10" shape="circle">
+        <area id="Thellion" title="Thellion" href="#" coords="1168,1016,10" shape="circle">
+        <area id="Jutarri" title="Jutarri" href="#" coords="1467,685,10" shape="circle">
+        <area id="Numari" title="Numari" href="#" coords="1225,1011,10" shape="circle">
+        <area id="Uchion" title="Uchion" href="#" coords="2117,134,10" shape="circle">
+        <area id="Vallion" title="Vallion" href="#" coords="1211,1121,10" shape="circle">
+        <area id="Erida" title="Erida" href="#" coords="1278,1040,10" shape="circle">
+        <area id="Daziwa" title="Daziwa" href="#" coords="2443,868,10" shape="circle">
+        <area id="Tyslin" title="Tyslin" href="#" coords="1774,793,10" shape="circle">
+        <area id="Quell" title="Quell" href="#" coords="2072,1085,10" shape="circle">
+        <area id="Caishon" title="Caishon" href="#" coords="1337,575,10" shape="circle">
+        <area id="Mirdin" title="Mirdin" href="#" coords="1377,917,10" shape="circle">
+        <area id="Kiarion" title="Kiarion" href="#" coords="2502,579,10" shape="circle">
+        <area id="Burchal" title="Burchal" href="#" coords="2162,885,10" shape="circle">
+        <area id="Fovalus" title="Fovalus" href="#" coords="2218,848,10" shape="circle">
+        <area id="Limrul" title="Limrul" href="#" coords="1036,879,10" shape="circle">
+        <area id="Lisca" title="Lisca" href="#" coords="1458,875,10" shape="circle">
+        <area id="Thauray" title="Thauray" href="#" coords="1208,853,10" shape="circle">
+        <area id="Ciroth" title="Ciroth" href="#" coords="1831,1174,10" shape="circle">
+        <area id="Forn" title="Forn" href="#" coords="1160,838,10" shape="circle">
+        <area id="Braedor" title="Braedor" href="#" coords="1383,866,10" shape="circle">
+        <area id="Naros" title="Naros" href="#" coords="1660,1176,10" shape="circle">
+        <area id="Akkado" title="Akkado" href="#" coords="2421,658,10" shape="circle">
+        <area id="Retorin" title="Retorin" href="#" coords="2377,428,10" shape="circle">
+        <area id="Ryshiri" title="Ryshiri" href="#" coords="1207,730,10" shape="circle">
+        <area id="Quillin" title="Quillin" href="#" coords="2439,598,10" shape="circle">
+        <area id="Wayward-Station" title="Wayward Station" href="#" coords="1437,1116,10" shape="circle">
+        <area id="Tench" title="Tench" href="#" coords="995,789,10" shape="circle">
+        <area id="Iwetha" title="Iwetha" href="#" coords="2559,1141,10" shape="circle">
+        <area id="Breherion" title="Breherion" href="#" coords="2592,623,10" shape="circle">
+        <area id="Ibrionet" title="Ibrionet" href="#" coords="2057,489,10" shape="circle">
+        <area id="Aeqori" title="Aeqori" href="#" coords="1895,756,10" shape="circle">
+        <area id="Rithis" title="Rithis" href="#" coords="2165,249,10" shape="circle">
+        <area id="Osetio" title="Osetio" href="#" coords="2202,753,10" shape="circle">
+        <area id="Clioth" title="Clioth" href="#" coords="2096,886,10" shape="circle">
+        <area id="Arcaes" title="Arcaes" href="#" coords="2340,369,10" shape="circle">
+        <area id="Etteroth" title="Etteroth" href="#" coords="2676,490,10" shape="circle">
+        <area id="Ranivar" title="Ranivar" href="#" coords="1973,831,10" shape="circle">
+        <area id="Kupori" title="Kupori" href="#" coords="2551,1041,10" shape="circle">
+        <area id="Dosalyn" title="Dosalyn" href="#" coords="2434,389,10" shape="circle">
+        <area id="Cliacon" title="Cliacon" href="#" coords="2183,686,10" shape="circle">
+        <area id="Larat" title="Larat" href="#" coords="2230,791,10" shape="circle">
+        <area id="Kastaen" title="Kastaen" href="#" coords="2511,1191,10" shape="circle">
+        <area id="Ommea" title="Ommea" href="#" coords="2405,1079,10" shape="circle">
+        <area id="Droquet" title="Droquet" href="#" coords="1666,1048,10" shape="circle">
+        <area id="Neahirah" title="Neahirah" href="#" coords="2584,743,10" shape="circle">
+        <area id="Krergi" title="Krergi" href="#" coords="2628,862,10" shape="circle">
+        <area id="Imatorin" title="Imatorin" href="#" coords=",,10" shape="circle">
+        <area id="Atisho" title="Atisho" href="#" coords="2725,739,10" shape="circle">
+        <area id="Vaecros" title="Vaecros" href="#" coords="1937,771,10" shape="circle">
+        <area id="Ghisori" title="Ghisori" href="#" coords="2725,826,10" shape="circle">
+        <area id="Hadrin" title="Hadrin" href="#" coords="2751,897,10" shape="circle">
+        <area id="Lyris" title="Lyris" href="#" coords="2527,327,10" shape="circle">
+        <area id="Niscenda" title="Niscenda" href="#" coords="2560,350,10" shape="circle">
+        <area id="Oarqi" title="Oarqi" href="#" coords="2666,1121,10" shape="circle">
+        <area id="Blassin" title="Blassin" href="#" coords="2646,292,10" shape="circle">
+        <area id="Urast" title="Urast" href="#" coords="2328,1122,10" shape="circle">
+        <area id="Arnaeth" title="Arnaeth" href="#" coords="2429,1229,10" shape="circle">
+        <area id="Collus" title="Collus" href="#" coords="2702,1233,10" shape="circle">
+        <area id="Waedon" title="Waedon" href="#" coords="2413,1302,10" shape="circle">
+        <area id="Coruth" title="Coruth" href="#" coords="2654,1207,10" shape="circle">
+        <area id="Vislin" title="Vislin" href="#" coords="1694,1247,10" shape="circle">
+        <area id="Sablen" title="Sablen" href="#" coords="1530,855,10" shape="circle">
+        <area id="Modrin" title="Modrin" href="#" coords="2571,1266,10" shape="circle">
+        <area id="Nareus" title="Nareus" href="#" coords="2152,1075,10" shape="circle">
+        <area id="Verex" title="Verex" href="#" coords="2041,1055,10" shape="circle">
+        <area id="Taelith" title="Taelith" href="#" coords="1812,1219,10" shape="circle">
+        <area id="Urva" title="Urva" href="#" coords="1951,1054,10" shape="circle">
+        <area id="Rhika" title="Rhika" href="#" coords="1975,1006,10" shape="circle">
+        <area id="Orun" title="Orun" href="#" coords="1608,1126,10" shape="circle">
+        <area id="Haiburn" title="Haiburn" href="#" coords="1934,1131,10" shape="circle">
+        <area id="Garis" title="Garis" href="#" coords=",,10" shape="circle">
+        <area id="Drovia" title="Drovia" href="#" coords="2211,1142,10" shape="circle">
+        <area id="Mionet" title="Mionet" href="#" coords="1504,965,10" shape="circle">
+        <area id="Opheon" title="Opheon" href="#" coords="1540,139,10" shape="circle">
+        <area id="Ralira" title="Ralira" href="#" coords="1373,1080,10" shape="circle">
+        <area id="Variel" title="Variel" href="#" coords="2259,1084,10" shape="circle">
+        <area id="Codios" title="Codios" href="#" coords="1570,1000,10" shape="circle">
+        <area id="Napheros" title="Napheros" href="#" coords="1646,1124,10" shape="circle">
+        <area id="Talvir" title="Talvir" href="#" coords="1387,1180,10" shape="circle">
+        <area id="Vaipra" title="Vaipra" href="#" coords="2238,1241,10" shape="circle">
+        <area id="Khosto" title="Khosto" href="#" coords="1577,1276,10" shape="circle">
+        <area id="Thael" title="Thael" href="#" coords="1849,1274,10" shape="circle">
+        <area id="Narosi" title="Narosi" href="#" coords="1484,1086,10" shape="circle">
+        <area id="Quodin" title="Quodin" href="#" coords="2129,1173,10" shape="circle">
+        <area id="Ravost" title="Ravost" href="#" coords="2047,1382,10" shape="circle">
+        <area id="Falori" title="Falori" href="#" coords="1384,1005,10" shape="circle">
+        <area id="Duathen" title="Duathen" href="#" coords="1576,1077,10" shape="circle">
+        <area id="Istrion" title="Istrion" href="#" coords="2016,1286,10" shape="circle">
+        <area id="Iskari" title="Iskari" href="#" coords="1973,1262,10" shape="circle">
+        <area id="Bretova" title="Bretova" href="#" coords="2184,1315,10" shape="circle">
+        <area id="Laviston" title="Laviston" href="#" coords="1996,1185,10" shape="circle">
+        <area id="Novarum" title="Novarum" href="#" coords="2102,1289,10" shape="circle">
+        <area id="Hosca" title="Hosca" href="#" coords="1516,1206,10" shape="circle">
+        <area id="Austal" title="Austal" href="#" coords="1796,279,10" shape="circle">
+        <area id="Talikos" title="Talikos" href="#" coords="1402,1222,10" shape="circle">
+        <area id="Gaulvir" title="Gaulvir" href="#" coords="1235,1176,10" shape="circle">
+        <area id="Iodion" title="Iodion" href="#" coords="1149,1129,10" shape="circle">
+        <area id="Narum" title="Narum" href="#" coords="1986,432,10" shape="circle">
+        <area id="Harikoth" title="Harikoth" href="#" coords="2394,358,10" shape="circle">
+        <area id="Maikos" title="Maikos" href="#" coords="1991,306,10" shape="circle">
+        <area id="Setorias" title="Setorias" href="#" coords="1693,736,10" shape="circle">
+      </map>
+  </div>
+
+
+
+    
+    <script src="js/script.js"></script>
+    <script src="js/jquery.rwdImageMaps.js"></script>
+
+</body>
+</html> 
